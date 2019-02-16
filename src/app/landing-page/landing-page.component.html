@@ -1,26 +1,53 @@
 <!-- Section: intro -->
-<div class="container">
-<div class="row">
-
-<nav>
-  <ul class="topmenu">
 
 
-    <a href="#"><img src="../../assets/img/angular2-logo.png"  width="100"/></a>
-    <li><a href="" [routerLink]="'admin'">Войти</a></li>
-    <li><a href="#service">Возможности</a></li>
-    <li><p href="" class="down">Приложения</p>
-      <ul class="submenu">
-        <li><a href="#about">Разработка приложения</a></li>
-        <li><a href="#works">Примеры приложений</a></li>
-      </ul>
-    </li>
-    <li><a href="#contact">Контакты</a></li>
-  </ul>
-</nav>
-</div></div>
+<nav class='navbar navbar-fixed-top navbar-color container-back' >
+    <div class='container image-container-back  ' >
 
-<div class="container">
+      <div class='navbar-header ' >
+
+        <button (click)="changeMenuState()" type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#nav-collapse' aria-expanded='false'>
+          <span class='sr-only' >Toggle navigation</span>
+          <span class='icon-bar' ></span>
+          <span class='icon-bar' ></span>
+          <span class='icon-bar' ></span>
+        </button>
+
+
+        <a href="#"><img src="../../assets/img/angular2-logo.png"  width="78px"/></a>
+
+      </div>
+
+      <div  [ngClass]="{'navbar-hiden':isMenuOpen}" class='navbar-right navbar-collapse nav-pad' id='' >
+
+        <ul class='nav navbar-nav ' >
+
+          <li class='active'>
+            <a href='#intro' [routerLink]="'admin'" data-scroll>Войти</a>
+          </li>
+
+          <li>
+            <a href='#service' data-scroll>Возможности</a>
+          </li>
+
+          <li>
+            <a  (click)="changeSubMenuState()" href='#' class="down" data-scroll>Приложения</a>
+            <ul [ngClass]="{'navbar-hiden':isSubMemuOpen}" class="submenu">
+              <li><a href="#about">Разработка приложения</a></li>
+              <li><a href="#works">Примеры приложений</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href='#contact' data-scroll>Контакты</a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
 
     <div class="intro">
 
@@ -33,8 +60,6 @@
 
     </div>
 
-
-</div>
 
 <!-- /Section: intro -->
 <br/>
