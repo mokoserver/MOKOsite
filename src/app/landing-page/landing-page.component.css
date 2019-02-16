@@ -105,7 +105,7 @@ a.button26:active {
         margin: 10px 0 10px 25px !important;
     }
     .submenu {
-        background-color: rgba(227, 222, 216, 0.86);
+
 
         position: absolute;
         left: 0;
@@ -269,7 +269,7 @@ a.send_mail:active {
 }
 .container-back{
 
-    background-color: rgba(227, 222, 216, 0.86);
+    background-color: rgba(202, 197, 191, 0.86);
 }
 .image-container-back > a > img{
     opacity: 1;
