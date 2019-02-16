@@ -1,0 +1,61 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header row">
+            <div class="col-md-6" [formGroup]="form">
+                <h4 class="card-title">{{'PRODUCTS' | translation}}</h4>
+                <p class="category">Здесь Вы можете добавлять/удалять и редактировать продукты.</p>
+                Поиск по продуктам: <input type="text" formControlName="search">
+            </div>
+            <div class="col-md-6">
+                <add-message [type]="'products'"></add-message>
+            </div>
+
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Заголовок</th>
+                    <th>Изображение</th>
+                    <th>Описание</th>
+                    <th>
+                        Категория
+                        <mat-form-field>
+                            <mat-select placeholder="Выбранная категория" (change)="selectChange($event)">
+                                <mat-option style="color:red">Сбросить</mat-option>
+                                <mat-option *ngFor="let option of categories$ | async"  [value]="option.category">
+                                    {{ option.category }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </th>
+                    <th class="text-right">Опции</th>
+                </tr>
+                </thead>
+                <tbody >
+                <!---->
+                <tr *ngFor="let product of products$ | async">
+                    <td>{{product.title}}</td>
+                    <td class="image-75px">
+                        <div class="image-table">
+                            <!--<img *ngFor="let image of product.images" [src]="image | async">-->
+                            <img style="width: 40%;" [src]="product.images[0] | async">
+                        </div>
+                    </td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.category}}</td>
+                    <td class="td-actions text-right">
+                        <options [id]="product._id" [type]="'products'"></options>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <mat-paginator *ngIf="products$" [length]="9999"
+                       [pageSize]="paginatorPageSize"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+                       [pageIndex]="paginatorPage"
+                       (page)="getPaginatorOptions($event)">
+        </mat-paginator>
+    </div>
+</div>

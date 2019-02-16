@@ -1,0 +1,8 @@
+.scroll-enable {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+.card-content {
+    min-width: 800px;
+}

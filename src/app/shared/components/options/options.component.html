@@ -1,0 +1,15 @@
+<a *ngIf="type == 'message'" class="btn btn-success btn-simple btn-xs" rel="tooltip" title="Редактировать"
+   data-original-title="Edit Profile" data-toggle="modal" data-target="#message" (click)="setOptions()">
+  <i class="ti-pencil-alt"></i>
+</a>
+<a *ngIf="type == 'products'" class="btn btn-success btn-simple btn-xs" rel="tooltip" title="Редактировать"
+   data-original-title="Edit Profile" data-toggle="modal" data-target="#productModal" (click)="setOptions()">
+  <i class="ti-pencil-alt"></i>
+</a>
+<a *ngIf="type == 'category'" class="btn btn-success btn-simple btn-xs" rel="tooltip" title="Редактировать"
+   data-original-title="Edit Profile" data-toggle="modal" data-target="#categoriesModal" (click)="setOptions()">
+  <i class="ti-pencil-alt"></i>
+</a>
+<a *ngIf="deleteOptVisible" class="btn btn-danger btn-simple btn-xs" rel="tooltip" title="Удалить" data-original-title="Remove" (click)="remove()">
+  <i class="ti-close"></i>
+</a>

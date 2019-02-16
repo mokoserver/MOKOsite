@@ -1,0 +1,47 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header row">
+            <div class="col-md-6">
+                <h4 class="card-title" *ngIf="title">{{title}}</h4>
+                <p class="category">Здесь Вы можете удалять и редактировать комментарии.</p>
+            </div>
+            <button class="btn btn-info btn-fill btn-wd pull-right"
+                    (click)="openDialog()">{{'ADD' | translation}}
+            </button>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Комментарий</th>
+                    <th>Время</th>
+                    <th>E-mail</th>
+                    <th>Телефон</th>
+                    <th class="text-right">Опции</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!---->
+                <tr *ngFor="let comments of comments$ | async">
+                    <td>{{comments.author}}</td>
+                    <td>{{comments.body}}</td>
+                    <td>{{comments.date | date:'dd.MM.yyyy H:mm' }}</td>
+                    <td>{{comments.email}}</td>
+                    <td>{{comments.phone}}</td>
+                    <td class="td-actions text-right">
+                        <a class="btn btn-success btn-simple btn-xs" rel="tooltip" title="Редактировать"
+                           data-original-title="Edit Profile" (click)="openDialog(comments._id)">
+                            <i class="ti-pencil-alt"></i>
+                        </a>
+                        <a class="btn btn-danger btn-simple btn-xs" rel="tooltip" title="" data-original-title="Remove"
+                           (click)="deleteItem(comments._id)">
+                            <i class="ti-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

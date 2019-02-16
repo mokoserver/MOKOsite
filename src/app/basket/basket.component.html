@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header row">
+      <div class="col-md-6">
+        <h4 class="card-title">Корзина</h4>
+        <!--<p class="category">Здесь Вы можете добавлять/удалять и редактировать }}.</p>-->
+      </div>
+      <!--<div class="col-md-6">-->
+        <!--<add-message [message]="messageName" [type]="'message'"></add-message>-->
+      <!--</div>-->
+
+    </div>
+    <div class="card-content table-responsive table-full-width">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Заказчик</th>
+          <th>Email</th>
+          <th>Телефон</th>
+          <th>Примечание</th>
+          <th>Время</th>
+          <th>Сумма</th>
+          <th>Просмотр</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!---->
+        <tr *ngFor="let item of orders$ | async">
+          <td>{{item.customer}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.note}}</td>
+          <td>{{item.date | date:'dd.MM.yyyy H:mm'}}</td>
+          <td>Сумма</td>
+          <td>
+            <a class="btn btn-success btn-simple btn-xs text-center " rel="tooltip" title="Редактировать"
+               data-original-title="Edit Profile"  (click)="openDialog(item)">
+              <i class="ti-pencil-alt"></i>
+            </a>
+          </td>
+        </tr>
+        <!---->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

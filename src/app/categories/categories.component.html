@@ -1,0 +1,47 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header row">
+            <div class="col-md-6">
+                <h4 class="card-title">Категории</h4>
+                <p class="category">Здесь Вы можете добавлять/удалять и редактировать категории.</p>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-info btn-fill btn-wd pull-right" (click)="openDialog()">{{'ADD' | translation}}</button>
+            </div>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Заголовок</th>
+                    <th>Описание</th>
+                    <th>Изображение</th>
+                    <th class="text-right">Опции</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!---->
+                <tr *ngFor="let category of categories$ | async">
+                    <td>{{category.category}}</td>
+                    <td>{{category.description}}</td>
+                    <td class="image-75px">
+                        <div class="image-table" *ngIf="category.images && category.images.length">
+                            <img style="width: 40%;" *ngFor="let image of category.images" [src]="image | async">
+                        </div>
+                    </td>
+                    <td class="td-actions text-right">
+                        <a class="btn btn-success btn-simple btn-xs" rel="tooltip" title="Редактировать"
+                           data-original-title="Edit Profile" (click)="openDialog(category._id)">
+                            <i class="ti-pencil-alt"></i>
+                        </a>
+                        <a class="btn btn-danger btn-simple btn-xs" rel="tooltip" title="Удалить" data-original-title="Remove"
+                            (click)="deleteItem(category._id)">
+                            <i class="ti-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div class="">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h4 class="modal-title" id="myModalLabel">{{value.commentsType}}</h4>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+              <form [formGroup]="form">
+                <div class="form-group">
+                  <h5>Автор</h5>
+                  <input type="text" formControlName="author" class="form-control border-input" placeholder="Пример заголовка.">
+                </div>
+                <div class="form-group">
+                  <h5>Телефон</h5>
+                  <input type="tel" formControlName="phone" class="form-control border-input" placeholder="+375">
+                </div>
+                <div class="form-group">
+                  <h5>Почтовый ящик</h5>
+                  <input type="email" formControlName="email" class="form-control border-input" placeholder="example@example.com">
+                </div>
+                <div class="form-group">
+                  <label>Содержание</label>
+                  <textarea formControlName="body" class="form-control border-input" rows="5"></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mat-dialog-actions" mat-dialog-actions>
+  <button class="mat-button" mat-button (click)="confirmSelection()">
+    <span class="mat-button-wrapper">{{ 'ACCEPT' | translation }}</span>
+    <div class="mat-button-ripple mat-ripple" matripple></div>
+    <div class="mat-button-focus-overlay"></div>
+  </button>
+  <button class="mat-button" mat-button (click)="dialogRef.close()">
+    <span class="mat-button-wrapper">{{ 'CANCEL' | translation }}</span>
+    <div class="mat-button-ripple mat-ripple" matripple></div>
+    <div class="mat-button-focus-overlay"></div>
+  </button>
+</div>

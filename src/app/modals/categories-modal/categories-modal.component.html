@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal-header">
+  <h4 class="modal-title">Категории</h4>
+</div>
+<div class="container-fluid" style="width: 800px">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="box-shadow: none;">
+        <div class="header">
+          <div class="col-md-6">
+            <h5 class="title">Изображение</h5>
+          </div>
+          <div class="col-md-6 input-wrapper text-right">
+                    <span class="btn btn-success btn-file">
+                        <span class="fileinput-new">{{'CHOOSE' | translation}}</span>
+                        <input type="file" name="..." (change)="upLoadBackground($event, 'bgResult')">
+                    </span>
+          </div>
+        </div>
+        <div class="text-center">
+          <img *ngIf="!form.value.images.length" style="max-width: 250px;" [src]="nophoto" alt="..."/>
+          <img *ngIf="form.value.images.length && !bgResult" style="max-width: 250px;" [src]="form.value.images[0].image" alt="..."/>
+          <img style="max-width: 250px;" *ngIf="bgResult" [src]="bgResult" alt="..."/>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="content">
+        <form [formGroup]="form">
+          <div class="form-group">
+            <h5>Категория</h5>
+            <input type="text" formControlName="category" class="form-control border-input" placeholder="Пример заголовка.">
+          </div>
+          <div class="form-group">
+            <label>Описание</label>
+            <textarea formControlName="description" class="form-control border-input" rows="5"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="dialogRef.close(false)">{{'CANCEL' | translation}}</button>
+  <button type="button" class="btn btn-success" [disabled]="!form.valid" (click)="submit()">{{'ACCEPT' | translation}}</button>
+</div>
