@@ -69,11 +69,12 @@ a.button26:active {
 .heading-about{
  margin: 5px;
 }
-.service-box{
+.service-icon{
     text-align: center;
+
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 911px) {
 .intro{
 
     width: 100%;
@@ -125,17 +126,34 @@ a.button26:active {
     }
 
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 911px) {
 
     .your-fucking-block{
         display: none;
     }
+    .h1{
+        font-weight: bold;
+    }
     .intro{
-        visibility: hidden;
-        display: none;
+
+        width: 100%;
+        height:466px;
+        padding-top: 50%;
+
+        color:white;
+        background-size: 100% ;
+        background-repeat: no-repeat;
+        background-image: url("../../assets/img/fon/img-bg-mob2.jpg") ;
     }
     .navbar-hiden{
         display: none;
+
+    }
+    .navbar-fixed-top .navbar-collapse {
+        max-height: 380px !important;
+    }
+    .mobile-margin{
+        margin-bottom: 15px;
 
     }
 }
@@ -284,4 +302,38 @@ a.send_mail:active {
     padding: 3px 15px;
     margin: 15px 8px;
 }
+
+.box-shadow {
+
+    background: #ddd;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 5px;
+    color: rgba(0,0,0, .8);
+    text-shadow: 0 1px 0 #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+
+.box-shadow-img {
+
+    background: #ddd;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom:35px ;
+    color: rgba(0,0,0, .8);
+    text-shadow: 0 1px 0 #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}
+
+.box-shadow-in{
+    min-height: 330px;
+    background: #e6e3df;
+    margin: 5px 5px 25px 5px;
+    padding: 15px;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+
 
