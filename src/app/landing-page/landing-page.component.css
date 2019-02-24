@@ -84,7 +84,9 @@ a.button26:active {
     background-repeat: no-repeat;
     background-image: url("../../assets/img/fon/img-bg.jpg") ;
     }
-
+    .margin-left{
+        margin-left: 18%;
+    }
     .h1{
         font-family: fantasy;
         font-size: 80px;
