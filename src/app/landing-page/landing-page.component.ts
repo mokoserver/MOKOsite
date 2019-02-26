@@ -11,9 +11,13 @@ export class LandingPageComponent implements OnInit {
 
   isMenuOpen = true;
   isSubMemuOpen = true;
+  isModalWindow = true;
   ngOnInit() {
   }
 
+  ModalWindow(){
+    this.isModalWindow = !this.isModalWindow;
+  }
   changeMenuState() {
     this.isMenuOpen = !this.isMenuOpen;
   }

@@ -14,7 +14,7 @@
             </button>
 
 
-            <a href="#"><img src="../../assets/img/angular2-logo.png"  width="78px"/></a>
+            <a (click)="changeMenuState()" href="#"><img src="../../assets/img/angular2-logo.png"  width="78px"/><a class="text-logo"> MOKO</a></a>
 
         </div>
 
@@ -22,26 +22,26 @@
 
             <ul class='nav navbar-nav ' >
 
-                <li class='active'>
-                    <a href='#intro' [routerLink]="'admin'" data-scroll>Войти</a>
+
+
+                <li>
+                    <a (click)="changeMenuState()" href='#service' data-scroll>Возможности</a>
                 </li>
 
                 <li>
-                    <a href='#service' data-scroll>Возможности</a>
-                </li>
-
-                <li>
-                    <a  (click)="changeSubMenuState()" href='#' class="down" data-scroll>Приложения</a>
+                    <p  (click)="changeSubMenuState()" href='#' class="down" data-scroll>Приложения</p>
                     <ul [ngClass]="{'navbar-hiden':isSubMemuOpen}" class="submenu container-back">
-                        <li><a href="#about">Разработка приложения</a></li>
-                        <li><a href="#works">Примеры приложений</a></li>
+                        <li><a (click)="changeMenuState()" href="#about">Разработка приложения</a></li>
+                        <li><a (click)="changeMenuState()" href="#works">Примеры приложений</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href='#contact' data-scroll>Контакты</a>
+                    <a (click)="changeMenuState()" href='#contact' data-scroll>Контакты</a>
                 </li>
-
+                <li class='active'>
+                    <a (click)="changeMenuState()" href='#intro' [routerLink]="'admin'" data-scroll>Войти</a>
+                </li>
             </ul>
         </div>
 
@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-xs-6 col-sm-3 col-md-3 mobile-margin">
 
-                <div class="team box-shadow">
+                <div class="team box-shadow box-size-item">
                     <div class="inner">
                         <h5>Дизайн</h5>
                         <p class="subtitle">+100 вариантов</p>
@@ -97,19 +97,7 @@
             </div>
             <div class="col-xs-6 col-sm-3 col-md-3 mobile-margin">
 
-                <div class="team box-shadow">
-                    <div class="inner">
-                        <h5>Приложение</h5>
-                        <p class="subtitle">можно скачивать</p>
-                        <div class="avatar"><img src="assets/img/develop/4.png" alt="" class="img-responsive"/></div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-xs-6 col-sm-3 col-md-3 mobile-margin">
-
-                <div class="team box-shadow">
+                <div class="team box-shadow ">
                     <div class="inner">
                         <h5>Публикация</h5>
                         <p class="subtitle">в AppStore, PlayMarket</p>
@@ -129,6 +117,19 @@
 
                 </div>
             </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 mobile-margin">
+
+                <div class="team box-shadow box-size-item">
+                    <div class="inner">
+                        <h5>Приложение</h5>
+                        <p class="subtitle">можно скачивать</p>
+                        <div class="avatar"><img src="assets/img/develop/4.png" alt="" class="img-responsive"/></div>
+                    </div>
+                </div>
+
+            </div>
+
+
 
         </div>
     </div>
@@ -257,65 +258,65 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
 
                 <div class="row gallery-item">
-                    <div class="col-md-3 box-shadow-img">
-                        <a href="http://moko.by/images/clients/1.jpg"
+                    <div  [ngClass]="{'modal-window':isModalWindow}" class="col-md-3 box-shadow-img">
+                        <p (click)="ModalWindow()" href=""
                            title="Разработанный мобильный каталог для компании КПСР-групп. http://kpsr-group.ru/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/1.jpg">
                             <img src="assets/img/clients/1.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
-                        <a href="http://moko.by/images/clients/2.jpg"
+                        <p href="http://moko.by/images/clients/2.jpg"
                            title="Разработанный мобильный каталог для магазина БЕЛАРУСАЧКА. http://belarusachka.by/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/2.jpg">
                             <img src="assets/img/clients/2.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
-                        <a href="http://moko.by/images/clients/3.jpg"
+                        <p href="http://moko.by/images/clients/3.jpg"
                            title="Разработанный мобильный каталог для магазина IDEAL LUX. http://ideal-lux.by/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/3.jpg">
                             <img src="assets/img/clients/3.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
-                        <a href="http://moko.by/images/clients/4.jpg"
+                        <p href="http://moko.by/images/clients/4.jpg"
                            title="Разработанный мобильный каталог для компании PRIDE-energo. http://pride-energo.by/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/4.jpg">
                             <img src="assets/img/clients/4.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
 
-                        <a href="http://moko.by/images/clients/5.jpg"
+                        <p href="http://moko.by/images/clients/5.jpg"
                            title="Разработанный мобильный каталог для компании UniTesS . http://unitess.ru/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/5.jpg">
                             <img src="assets/img/clients/5.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
 
-                        <a href="http://moko.by/images/clients/6.jpg"
+                        <p href="http://moko.by/images/clients/6.jpg"
                            title="Разработанный мобильный каталог для бара LOFT BAR. http://loft-bar.ru/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/6.jpg">
                             <img src="assets/img/clients/6.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
 
-                        <a href="http://moko.by/images/clients/7.jpg"
+                        <p href="http://moko.by/images/clients/7.jpg"
                            title="Разработанный мобильный каталог для компании VISABEL. http://visabel.com.au/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/7.jpg">
                             <img src="assets/img/clients/7.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                     <div class="col-md-3 box-shadow-img">
 
-                        <a href="http://moko.by/images/clients/8.jpg"
+                        <p href="http://moko.by/images/clients/8.jpg"
                            title="Разработанный мобильный каталог для магазина MOKO. http://moko.by/"
                            data-lightbox-gallery="gallery1" data-lightbox-hidpi="http://moko.by/images/clients/8.jpg">
                             <img src="assets/img/clients/8.jpg" class="img-responsive" alt="img">
-                        </a>
+                        </p>
                     </div>
                 </div>
 
