@@ -24,8 +24,10 @@ export class ProductsModalComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
 
-  constructor(private store: StoreService, private service: HttpService,
-              private fb: FormBuilder, private formService: FormService) {
+  constructor(private store: StoreService,
+              private service: HttpService,
+              private fb: FormBuilder, 
+              private formService: FormService) {
   }
 
   ngOnInit() {

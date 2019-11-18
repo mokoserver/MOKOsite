@@ -22,6 +22,18 @@ export class ApplicationInfoComponent implements OnInit {
   colorNames = ['Аква', 'Влюбленная жаба', 'Международный оранжевый', 'Светлая вишня', 'Фиолетовый и серый'];
   templateNames = ['Вариант 1', 'Вариант 2', 'Вариант 3', 'Вариант 4', 'Вариант 5'];
   iconNames = ['Классические', 'Светлые', 'Современные'];
+  public iconTypes = [
+    { name: 'Неопределен',        pic:"assets/img/colors/AquaFinal.png",value: 'undefined'},
+    { name: 'Корзина',            pic:"assets/img/colors/AquaFinal.png",value: 'basket'},
+    { name: 'Комментарии',        pic:"assets/img/colors/AquaFinal.png",value: 'comments'},
+    { name: 'Контакты',           pic:"assets/img/colors/AquaFinal.png",value: 'contacts'},
+    { name: 'Галерея',            pic:"assets/img/colors/AquaFinal.png",value: 'gallery'},
+    { name: 'Карта',              pic:"assets/img/colors/AquaFinal.png",value: 'map'},
+    { name: 'Новости',            pic:"assets/img/colors/AquaFinal.png",value: 'news'},
+    { name: 'Продукты',           pic:"assets/img/colors/AquaFinal.png",value: 'products'},
+    { name: 'Распродажа',         pic:"assets/img/colors/AquaFinal.png",value: 'sales'},
+    { name: 'Поделиться',         pic:"assets/img/colors/AquaFinal.png",value: 'share'}
+  ];
   public form: FormGroup;
 
   constructor(private service: HttpService, private fb: FormBuilder, private formService: FormService) {

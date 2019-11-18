@@ -2,22 +2,20 @@
     <div class="col-lg-4 col-md-5">
         <div class="card card-user">
             <div class="image" [ngClass]="{'hovered': hoveredBG}">
-                <img *ngIf="!bgResult" [src]="form.value['backgroud']"/>
-                <img *ngIf="bgResult" [src]="bgResult"/>
+                <img *ngIf="!bgResult" [src]="form.value['backgroud']" />
+                <img *ngIf="bgResult" [src]="bgResult" />
             </div>
             <div class="content">
                 <div class="author">
-                    <img *ngIf="!iconResult" [ngClass]="{'hovered': hoveredIcon}"
-                         [src]="form.value['logo']"/>
-                    <img *ngIf="iconResult" [ngClass]="{'hovered': hoveredIcon}"
-                         [src]="iconResult"/>
-                    <h4 class="title">{{form.value['title']}}<br/>
+                    <img *ngIf="!iconResult" [ngClass]="{'hovered': hoveredIcon}" [src]="form.value['logo']" />
+                    <img *ngIf="iconResult" [ngClass]="{'hovered': hoveredIcon}" [src]="iconResult" />
+                    <h4 class="title">{{form.value['title']}}<br />
                         <br>
                     </h4>
                 </div>
 
                 <div class="col-md-6 input-wrapper text-center" (mouseenter)="hovered(true, 'hoveredBG')"
-                     (mouseleave)="hovered(false, 'hoveredBG')">
+                    (mouseleave)="hovered(false, 'hoveredBG')">
                     <span class="btn btn-rose btn-round btn-file">
                         <span class="fileinput-new">{{ 'BACKGROUND' | translation }}</span>
                         <input type="file" (change)="upLoadBackground($event, 'bgResult')">
@@ -25,7 +23,7 @@
                 </div>
 
                 <div class="col-md-6 input-wrapper text-center" (mouseenter)="hovered(true, 'hoveredIcon')"
-                     (mouseleave)="hovered(false, 'hoveredIcon')">
+                    (mouseleave)="hovered(false, 'hoveredIcon')">
                     <span class="btn btn-rose btn-round btn-file">
                         <span class="fileinput-new">{{ 'ICON' | translation }}</span>
                         <input type="file" (change)="upLoadBackground($event, 'iconResult')">
@@ -45,17 +43,29 @@
         <div class="card">
             <div class="header">
                 <label>Разделы приложения</label>
-                <a class="btn" style="border-radius: 4px; padding: 0 6px; cursor: pointer;" (click)="addOption(false)">+</a>
-                <a class="btn pull-right" style="border-radius: 4px; padding: 0 6px; cursor: pointer;" (click)="onFormSubmit()">Обновить</a>
+                <a class="btn" style="border-radius: 4px; padding: 0 6px; cursor: pointer;"
+                    (click)="addOption(false)">+</a>
+                <a class="btn pull-right" style="border-radius: 4px; padding: 0 6px; cursor: pointer;"
+                    (click)="onFormSubmit()">Обновить</a>
             </div>
             <span formArrayName="menuitems">
-                <ng-template  style="margin-bottom: 1px" ngFor let-item let-i="index" [ngForOf]="form['controls']['menuitems']['controls']">
+                <ng-template style="margin-bottom: 1px" ngFor let-item let-i="index"
+                    [ngForOf]="form['controls']['menuitems']['controls']">
                     <span class="content row" [formGroupName]="i" *ngIf="item.controls.inbound.value == false">
-                        <div class="col-md-7">
-                            <input type="text"  class="form-control border-input" formControlName="name">
-                        </div>
+                                <div class="col-md-5">
+                                    <mat-form-field class="col-lg-3">
+                                        <mat-select placeholder="Тип раздела">
+                                            <mat-option style="color:rgb(47, 0, 255)" *ngFor="let iconType of iconTypes" [value]="iconType"> {{iconType.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control border-input" formControlName="name">
+                                </div>
                         <div class="col-md-1">
-                            <a href="#" class="btn btn-danger" data-toggle="dropdown" style="border-radius: 4px;" (click)="deleteOption(i)">-</a>
+                            <a href="#" class="btn btn-danger" data-toggle="dropdown" style="border-radius: 4px;"
+                                (click)="deleteOption(i)">-</a>
                         </div>
                     </span>
                 </ng-template>
@@ -66,7 +76,8 @@
             <div class="header">
                 <label>Каталог</label>
                 <a class="btn" style="border-radius: 4px; padding: 0 6px; cursor: pointer;">+</a>
-                <a class="btn pull-right" style="border-radius: 4px; padding: 0 6px; cursor: pointer;" (click)="onFormSubmit()">Обновить</a>
+                <a class="btn pull-right" style="border-radius: 4px; padding: 0 6px; cursor: pointer;"
+                    (click)="onFormSubmit()">Обновить</a>
             </div>
             <span>
                 <div class="content row" style="margin-bottom: 1px">
@@ -83,17 +94,21 @@
         <div class="card">
             <div class="header">
                 <label>Комментарии</label>
-                <a class="btn" style="border-radius: 4px; padding: 0 6px; cursor: pointer;" (click)="addOption(true)">+</a>
-                <a class="btn pull-right" style="border-radius: 4px; padding: 0 6px; cursor: pointer;" (click)="onFormSubmit()">Обновить</a>
+                <a class="btn" style="border-radius: 4px; padding: 0 6px; cursor: pointer;"
+                    (click)="addOption(true)">+</a>
+                <a class="btn pull-right" style="border-radius: 4px; padding: 0 6px; cursor: pointer;"
+                    (click)="onFormSubmit()">Обновить</a>
             </div>
             <span formArrayName="menuitems">
-                <ng-template style="margin-bottom: 1px" ngFor let-item let-i="index" [ngForOf]="form['controls']['menuitems']['controls']">
+                <ng-template style="margin-bottom: 1px" ngFor let-item let-i="index"
+                    [ngForOf]="form['controls']['menuitems']['controls']">
                     <span class="content row" [formGroupName]="i" *ngIf="item.controls.inbound.value == true">
                         <div class="col-md-7">
-                            <input type="text"  class="form-control border-input" formControlName="name">
+                            <input type="text" class="form-control border-input" formControlName="name">
                         </div>
                         <div class="col-md-1">
-                            <a href="#" class="btn btn-danger" data-toggle="dropdown" style="border-radius: 4px;" (click)="deleteOption(i)">-</a>
+                            <a href="#" class="btn btn-danger" data-toggle="dropdown" style="border-radius: 4px;"
+                                (click)="deleteOption(i)">-</a>
                         </div>
                     </span>
                 </ng-template>
@@ -112,21 +127,21 @@
                         <div class="form-group">
                             <label>Уникальное имя</label>
                             <input type="text" class="form-control border-input" disabled
-                                   placeholder="Ваше уникальное имя" [value]="form.value.store">
+                                placeholder="Ваше уникальное имя" [value]="form.value.store">
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
                             <label>Название приложения</label>
-                            <input type="text" class="form-control border-input"
-                                   formControlName="title" placeholder="Доставка кофе">
+                            <input type="text" class="form-control border-input" formControlName="title"
+                                placeholder="Доставка кофе">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Ваш почтовый ящик</label>
-                            <input type="email" ngModel email class="form-control border-input"
-                                   formControlName="email" placeholder="example@gmail.com">
+                            <input type="email" ngModel email class="form-control border-input" formControlName="email"
+                                placeholder="example@gmail.com">
                         </div>
                     </div>
                 </div>
@@ -135,15 +150,15 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Имя владельца</label>
-                            <input type="text" class="form-control border-input"
-                                   formControlName="firstname" placeholder="Иван">
+                            <input type="text" class="form-control border-input" formControlName="firstname"
+                                placeholder="Иван">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Фамилия владельца</label>
-                            <input type="text" class="form-control border-input"
-                                   formControlName="lastname" placeholder="Васильевич">
+                            <input type="text" class="form-control border-input" formControlName="lastname"
+                                placeholder="Васильевич">
                         </div>
                     </div>
                 </div>
@@ -152,28 +167,31 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Номер телефона</label>
-                            <input type="tel" class="form-control border-input"
-                                   formControlName="phone" placeholder="+375">
+                            <input type="tel" class="form-control border-input" formControlName="phone"
+                                placeholder="+375">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Денежная еденица</label>
-                            <input type="text" class="form-control border-input"
-                                   formControlName="currency" placeholder="BYN">
+                            <input type="text" class="form-control border-input" formControlName="currency"
+                                placeholder="BYN">
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-info btn-fill btn-wd"
-                            [disabled]="!form.valid" (click)="onFormSubmit()">{{'INFO_REFRESH' | translation}}
+                    <button type="submit" class="btn btn-info btn-fill btn-wd" [disabled]="!form.valid"
+                        (click)="onFormSubmit()">{{'INFO_REFRESH' | translation}}
                     </button>
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <app-template *ngIf="form" [form]="form" [formField]="'colorscheme'" [layoutArray]="colorArray" [layoutNames]="colorNames" [title]="'COLOR_CHOOSE' | translation"></app-template>
-        <app-template *ngIf="form" [form]="form" [formField]="'iconpack'" [layoutArray]="iconArray" [layoutNames]="iconNames" [title]="'ICONS_CHOOSE' | translation"></app-template>
-        <app-template *ngIf="form" [form]="form" [formField]="'layout'" [layoutArray]="templateArray" [layoutNames]="templateNames" [title]="'TEMPLATE_CHOOSE' | translation"></app-template>
+        <app-template *ngIf="form" [form]="form" [formField]="'colorscheme'" [layoutArray]="colorArray"
+            [layoutNames]="colorNames" [title]="'COLOR_CHOOSE' | translation"></app-template>
+        <app-template *ngIf="form" [form]="form" [formField]="'iconpack'" [layoutArray]="iconArray"
+            [layoutNames]="iconNames" [title]="'ICONS_CHOOSE' | translation"></app-template>
+        <app-template *ngIf="form" [form]="form" [formField]="'layout'" [layoutArray]="templateArray"
+            [layoutNames]="templateNames" [title]="'TEMPLATE_CHOOSE' | translation"></app-template>
     </div>
 </form>

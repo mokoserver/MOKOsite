@@ -24,6 +24,7 @@ export class HttpService {
   // U - put (http.put)
   // D - delete (http.delete)
   constructor(private http: HttpClient, private auth: AuthenticationService) {
+    http.post
   }
 
   getMenuItems(login, password): Observable<any> {
@@ -279,9 +280,14 @@ export class HttpService {
         .catch(this.handleError)
   }
 
-  getOrders() {
+  getOrders(filter?): Observable<any> {
     let params = new HttpParams();
     params = params.set('deviceid', this.auth.getUserUsername());
+
+    if (filter) {
+      params = params.set('filter', `${filter.key}:${filter.value}`);
+    }
+
     return this.http.get(this.baseUri
         .concat(this.catalogOrders), {headers: this.getAuthHeaders(), params: params})
         .catch(this.handleError);
@@ -302,6 +308,24 @@ export class HttpService {
         .post(this.baseUri.concat(this.catalogOrders), value,
             {headers: this.getAuthHeaders(null, true)})
         .catch(this.handleError)
+  }
+
+  updateOrder(orderId, status) {
+    let params = new HttpParams();
+    console.log("то что пришло в функцию перед серваком",orderId,status)
+    params = params.set('orderid', orderId);
+
+    const body = {status: status};
+
+    console.log("ТЕЛО",body,params, this.catalogOrders, this.baseUri.concat(this.catalogOrders))
+    console.log("ХТТП",this.http)
+    return this.http
+        .patch(this.baseUri.concat(this.catalogOrders) +'/' + orderId, body,
+            {headers: this.getAuthHeaders(null, false)})
+
+        .catch(this.handleError)
+
+        
   }
 
 

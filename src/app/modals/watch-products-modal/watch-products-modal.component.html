@@ -14,7 +14,7 @@
     </thead>
     <tbody >
     <!---->
-    <tr *ngFor="let product of products$">
+    <tr *ngFor="let product of products$" >
       <td>{{product.title}}</td>
       <td class="image-75px">
         <div class="image-table">
@@ -34,10 +34,12 @@
   </table>
 </div>
 
-<div class="mat-dialog-actions" mat-dialog-actions>
-  <button class="mat-button" mat-button (click)="dialogRef.close()">
-    <span class="mat-button-wrapper">OK</span>
-    <div class="mat-button-ripple mat-ripple" matripple></div>
-    <div class="mat-button-focus-overlay"></div>
-  </button>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default"  (click)="dialogRef.close()">ОК</button>
 </div>
+<mat-form-field >
+  <mat-select placeholder="Изменить статус заказа" (change)="selectOrderChange($event)" [(value)]="order.order.status">
+      <mat-option style="color:rgb(47, 0, 255)" *ngFor="let orderStatus of orderStatuses"  [value]="orderStatus.value"> {{orderStatus.name}} {{orderStatus.value}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
